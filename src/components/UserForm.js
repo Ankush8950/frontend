@@ -39,9 +39,11 @@ const UserForm = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
+    <div>
       <h1 className="capitalize mt-5 font-semibold text-3xl">
         Create user Form
       </h1>
+      </div>
       <div className="w-full h-1 bg-black mt-7"></div>
       <div class="mt-5 block p-6 rounded-lg shadow-lg bg-white max-w-md w-1/2">
         <form onSubmit={onHandleData}>
