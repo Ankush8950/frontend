@@ -13,6 +13,8 @@ const ListUser = () => {
   const fatchUserData = async () => {
     const res = await axios.get("/getUser");
     // console.log(res);
+
+
     if (res.data.user) {
       setUserdata(res.data.user);
     }
@@ -21,6 +23,11 @@ const ListUser = () => {
   useEffect(() => {
     fatchUserData();
   },[]);
+
+  // const sortMethod = () =>{
+  //     const datas = getUserData.sort((a, b) => a.name > b.name ? 1 : -1)
+  //     console.log(datas);
+  // }
 
   const editUser = async (user) => {
     const userName = prompt("Enter user name");
@@ -90,7 +97,9 @@ const ListUser = () => {
               name="name"
               onChange={searchUser}
             />
+          {/* <button className="w-20 text-white bg-black" onClick={sortMethod}>sort</button> */}
         </div>
+        
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
@@ -168,7 +177,9 @@ const ListUser = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {getUserData.length > 0 ? getUserData.map((user,index)=>{
+                  {getUserData.length > 0 ? getUserData 
+                  .sort((a, b) => a.name > b.name ? 1 : -1)
+                  .map((user,index)=>{
                       return (
                         <tr class="bg-white border-b" key={user._id}>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
